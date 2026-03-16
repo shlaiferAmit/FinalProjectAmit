@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="FinalProjectAmit.Views.MainPage"
+    Title="Home"
+    BackgroundColor="#99C1E9">
+    <Grid>
+        <VerticalStackLayout
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            Spacing="20"
+            Margin="20">
+
+            <Image Source="logo.png"
+                   HeightRequest="150"
+                   WidthRequest="150"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,10"/>
+
+            <Label Text="welcome to the main page"
+                   FontSize="26"
+                   TextColor="#2C3E50" 
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold"/>
+
+            <Label Text="select an option from the menu"
+                   FontSize="16"
+                   TextColor="#445566"
+                   HorizontalOptions="Center"/>
+
+            <Button Text="Log out"
+                    Clicked="OnLogoutClicked"
+                    BackgroundColor="#E67E22" 
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    HeightRequest="55"
+                    WidthRequest="200"
+                    CornerRadius="10"/>
+
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

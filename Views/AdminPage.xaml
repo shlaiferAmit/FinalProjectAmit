@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalProjectAmit.Views.AdminPage"
+             Title="Admin"
+             BackgroundColor="#99C1E9">
+
+    <VerticalStackLayout Padding="30" Spacing="25" VerticalOptions="Center">
+
+        <Image Source="logo.png" 
+               HeightRequest="100" 
+               WidthRequest="100" 
+               HorizontalOptions="Center" 
+               Margin="0,0,0,10"/>
+
+        <Label Text="ADMIN PANEL"
+               FontSize="30"
+               FontAttributes="Bold"
+               TextColor="#2C3E50"
+               HorizontalOptions="Center"
+               CharacterSpacing="2"/>
+
+        <Label Text="Manage your application settings and users"
+               FontSize="16"
+               TextColor="#445566"
+               HorizontalOptions="Center"
+               HorizontalTextAlignment="Center"
+               Margin="0,0,0,20"/>
+
+        <Button Text="GO TO USERS LIST"
+                Clicked="OnUsersClicked"
+                BackgroundColor="#E67E22"
+                TextColor="White"
+                FontAttributes="Bold"
+                FontSize="18"
+                HeightRequest="60"
+                CornerRadius="10"/>
+
+        <BoxView HeightRequest="1" 
+                 BackgroundColor="White" 
+                 HorizontalOptions="FillAndExpand" 
+                 Margin="40,20"/>
+
+    </VerticalStackLayout>
+</ContentPage>

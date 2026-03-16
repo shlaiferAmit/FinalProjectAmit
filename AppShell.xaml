@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="FinalProjectAmit.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:FinalProjectAmit.Views"
+    Shell.FlyoutBehavior="Disabled">
+
+    <!-- התחברות -->
+    <ShellContent
+        Route="SignInPage"
+        ContentTemplate="{DataTemplate views:SignInPage}" />
+
+    <ShellContent
+        Route="SignUpPage"
+        ContentTemplate="{DataTemplate views:SignUpPage}" />
+
+    <!-- טאבים למטה -->
+    <TabBar>
+
+        <Tab Title="Home" Icon="home.png">
+            <ShellContent
+                Route="MainPage"
+                ContentTemplate="{DataTemplate views:MainPage}" />
+        </Tab>
+
+        <Tab Title="Admin" Icon="admin.png">
+            <ShellContent
+                Route="AdminPage"
+                ContentTemplate="{DataTemplate views:AdminPage}" />
+        </Tab>
+
+        <Tab Title="Users" Icon="users.png">
+            <ShellContent
+                Route="UserListPage"
+                ContentTemplate="{DataTemplate views:UserListPage}" />
+        </Tab>
+
+        <Tab Title="Edit" Icon="edit.png">
+            <ShellContent
+                Route="UserDetailsPage"
+                ContentTemplate="{DataTemplate views:UserDetailsPage}" />
+        </Tab>
+
+    </TabBar>
+
+</Shell>
