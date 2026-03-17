@@ -21,7 +21,7 @@ namespace FinalProjectAmit.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        // פונקציה שתקראי לה לאחר התחברות כדי לרענן את התפריט
+        // פונקציה שנקרא לה לאחר התחברות כדי לרענן את התפריט
         public void Refresh()
         {
             OnPropertyChanged(nameof(IsAdmin));
