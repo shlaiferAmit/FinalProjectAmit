@@ -1,11 +1,16 @@
-﻿namespace FinalProjectAmit;
+﻿using FinalProjectAmit.ViewModels; // ודאי שהשורה הזו קיימת למעלה
 
-public partial class App : Application
+namespace FinalProjectAmit
 {
-    public App()
+    public partial class App : Application
     {
-        InitializeComponent();
-        MainPage = new AppShell();
+        // זו השורה שחסרה לך וגורמת לכל השגיאות האדומות:
+        public ObservableUser CurrentUser { get; set; }
+
+        public App()
+        {
+            InitializeComponent();
+            MainPage = new AppShell();
+        }
     }
 }
-

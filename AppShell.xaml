@@ -4,9 +4,13 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:views="clr-namespace:FinalProjectAmit.Views"
+    xmlns:vm="clr-namespace:FinalProjectAmit.ViewModels"
     Shell.FlyoutBehavior="Disabled">
 
-    <!-- התחברות -->
+    <Shell.BindingContext>
+        <vm:AppShellViewModel />
+    </Shell.BindingContext>
+
     <ShellContent
         Route="SignInPage"
         ContentTemplate="{DataTemplate views:SignInPage}" />
@@ -15,7 +19,6 @@
         Route="SignUpPage"
         ContentTemplate="{DataTemplate views:SignUpPage}" />
 
-    <!-- טאבים למטה -->
     <TabBar>
 
         <Tab Title="Home" Icon="home.png">
@@ -24,13 +27,13 @@
                 ContentTemplate="{DataTemplate views:MainPage}" />
         </Tab>
 
-        <Tab Title="Admin" Icon="admin.png">
+        <Tab Title="Admin" Icon="admin.png" IsVisible="{Binding IsAdmin}">
             <ShellContent
                 Route="AdminPage"
                 ContentTemplate="{DataTemplate views:AdminPage}" />
         </Tab>
 
-        <Tab Title="Users" Icon="users.png">
+        <Tab Title="Users" Icon="users.png" IsVisible="{Binding IsAdmin}">
             <ShellContent
                 Route="UserListPage"
                 ContentTemplate="{DataTemplate views:UserListPage}" />

@@ -1,27 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
+
 namespace FinalProjectAmit.ViewModels
 {
-    internal class AppShellViewModel
+    public class AppShellViewModel : INotifyPropertyChanged
     {
-        //private Page _signInPage;
-        //public bool IsAdmin { get => (App.Current as App)?.CurrentUser?.IsAdmin ?? false; }
-        //public ICommand LogoutCommand { get; }
-        //public AppShellViewModel(SignInPage signInPage)
-        //{
-        //    _signInPage = signInPage;
-        //    LogoutCommand = new Command(Logout);
-        //}
+        // המאפיין שיקבע אם הטאב יוצג או יוסתר
+        public bool IsAdmin => (Application.Current as App)?.CurrentUser?.IsAdmin ?? false;
 
-        //private async void Logout(object obj)
-        //{
-        //    (App.Current as App)!.CurrentUser = null;
-        //    Application.Current.Windows[0].Page = _signInPage;
-        //}
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        // פונקציה שתקראי לה לאחר התחברות כדי לרענן את התפריט
+        public void Refresh()
+        {
+            OnPropertyChanged(nameof(IsAdmin));
+        }
     }
 }

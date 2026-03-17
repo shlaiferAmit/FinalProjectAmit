@@ -84,11 +84,28 @@ namespace FinalProjectAmit.ViewModels
 
         private async void OnSignIn()
         {
+            // 1. ניסיון שליפת המשתמש
             var user = DBMokup.GetUser(UserName, UserPassword);
 
             if (user != null)
             {
+                // 2. עדכון ה-DB המדומה (כפי שעשית)
                 DBMokup.CurrentUser = user;
+
+                // 3. עדכון ה-App.CurrentUser (קריטי בשביל ה-Shell)
+                // אנחנו הופכים את ה-User ל-ObservableUser כדי שה-UI יגיב לשינויים
+                if (Application.Current is App app)
+                {
+                    app.CurrentUser = new ObservableUser(user);
+                }
+
+                // 4. רענון ה-Shell כדי להציג את טאב ה-Admin אם המשתמש הוא מנהל
+                if (Shell.Current?.BindingContext is AppShellViewModel vm)
+                {
+                    vm.Refresh();
+                }
+
+                // 5. מעבר לדף הראשי
                 await Shell.Current.GoToAsync("//MainPage");
             }
             else
